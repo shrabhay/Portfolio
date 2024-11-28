@@ -51,7 +51,9 @@ def download():
 
 @app.route('/contact', methods=['GET', 'POST'])
 def get_contact():
+    email_sent = False
     if request.method == 'POST':
+        email_sent = True
         user_info = {
             'name': request.form.get('Name'),
             'email': request.form.get('E-mail'),
@@ -59,9 +61,9 @@ def get_contact():
             'message': request.form.get('Message'),
         }
         send_email(user_info)
-        return render_template('contact.html')
+        return render_template('index-svg.html', sent=email_sent)
     return render_template('index-svg.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
