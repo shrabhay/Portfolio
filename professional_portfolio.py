@@ -20,11 +20,11 @@ def send_email(user_info):
     sender_email = os.getenv('email_user')
     recipient_email = os.getenv('email_user')
 
-    subject = f'{user_info['name']} - {user_info['email']} accessed your profile!'
-    message = (f'Name: {user_info['name']}\n'
-               f'Email: {user_info['email']}\n'
-               f'Phone: {user_info['phone']}\n'
-               f'Message: {user_info['message']}')
+    subject = f"{user_info['name']} - {user_info['email']} accessed your profile!"
+    message = (f"Name: {user_info['name']}\n"
+               f"Email: {user_info['email']}\n"
+               f"Phone: {user_info['phone']}\n"
+               f"Message: {user_info['message']}")
 
     connection = connect_to_email_account()
     connection.sendmail(
@@ -64,4 +64,4 @@ def get_contact():
 
 
 if __name__ == '__main__':
-    app.run(debug=False, port=5003)
+    app.run(debug=False)
